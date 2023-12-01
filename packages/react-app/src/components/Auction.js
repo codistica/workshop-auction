@@ -64,7 +64,9 @@ export default function ActionAreaCard() {
         return started && started[0];
     }
     const endBid = () => {
-        send();
+        try{
+            send();
+        }catch (e) {}
     }
 
     useEffect(() => {

@@ -3,7 +3,7 @@ pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 
-contract NFTAuction {
+contract Auction {
     IERC721 public nft;
     uint public nftId;
     address public seller;
@@ -24,21 +24,16 @@ contract NFTAuction {
     function registerNFT(address _nft, uint _nftId, uint _duration) external {
         require(!started, "Auction already started.");
         require(msg.sender == seller, "You are not the seller.");
+        started = true;
         nft = IERC721(_nft);
         nftId = _nftId;
-        endAt = block.timestamp + _duration;
-        highestBid = address(0);
-        highestBid = 0;
-    }
-
-    function start() external {
-        require(msg.sender == seller, "You are not the seller.");
-        require(!started, "Auction already started.");
-
         nft.transferFrom(msg.sender, address(this), nftId);
-        started = true;
+        endAt = block.timestamp + _duration;
+        highestBid = 0;
+        highestBidder = address(0);
         emit Start();
     }
+
 
     function bid() external payable {
         require(started, "Auction not started.");
@@ -56,9 +51,9 @@ contract NFTAuction {
     function end() external {
         require(started, "Auction not started.");
         require(block.timestamp >= endAt, "Auction not yet ended.");
-        require(!ended, "Auction already ended.");
 
-        ended = true;
+        started = false;
+
         if (highestBidder != address(0)) {
             nft.transferFrom(address(this), highestBidder, nftId);
             payable(seller).transfer(highestBid);

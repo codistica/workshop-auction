@@ -44,10 +44,14 @@ export default function MultiCard({ nftId }) {
 
     const handleBid = () => {
         const bidValue = ethers.utils.parseEther(bidAmount || '0');
-        send({ value: bidValue });
+        try{
+            send({ value: bidValue });
+
+        }catch (e) {
+
+        }
 
     };
-    console.log("state", state);
 
     return (
         <Card sx={{ maxWidth: 345 }}>
