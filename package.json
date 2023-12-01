@@ -1,5 +1,5 @@
 {
-  "name": "@my-app/monorepo",
+  "name": "my-app",
   "version": "1.0.0",
   "keywords": [
     "ethereum",
@@ -8,6 +8,11 @@
     "yarn"
   ],
   "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
   "scripts": {
     "subgraph:auth": "yarn workspace @my-app/subgraph auth",
     "subgraph:codegen": "yarn workspace @my-app/subgraph codegen",
@@ -19,12 +24,5 @@
     "react-app:start": "yarn workspace @my-app/react-app start",
     "react-app:test": "yarn workspace @my-app/react-app test",
     "react-app:jsonDeploy": "yarn workspace @my-app/react-app jsonDeploy"
-  },
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ]
-  },
-  "dependencies": {
   }
 }
