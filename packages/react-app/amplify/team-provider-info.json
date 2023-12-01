@@ -10,6 +10,14 @@
       "StackName": "amplify-workshopauction-dev-110843",
       "StackId": "arn:aws:cloudformation:eu-west-1:509561305736:stack/amplify-workshopauction-dev-110843/9c5e3140-9031-11ee-b038-0af390579187",
       "AmplifyAppId": "d1aqwq7n7mezfo"
+    },
+    "categories": {
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d1aqwq7n7mezfo",
+          "type": "cicd"
+        }
+      }
     }
   }
 }

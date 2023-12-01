@@ -24,5 +24,8 @@
     "react-app:start": "yarn workspace @my-app/react-app start",
     "react-app:test": "yarn workspace @my-app/react-app test",
     "react-app:jsonDeploy": "yarn workspace @my-app/react-app jsonDeploy"
+  },
+  "devDependencies": {
+    "@aws-amplify/cli": "12.8.2"
   }
 }
