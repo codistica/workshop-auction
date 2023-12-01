@@ -1,6 +1,8 @@
-customHeaders:
-    - pattern: '**/*'
-      headers:
-          - key: 'Cache-Control'
-            value: >-
-                max-age=86400
+applications:
+    - appRoot: packages/react-app
+      customHeaders:
+          - pattern: '**/*'
+            headers:
+                - key: 'Cache-Control'
+                  value: >-
+                      max-age=86400
