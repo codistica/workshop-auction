@@ -10,10 +10,10 @@ applications:
           phases:
               preBuild:
                   commands:
-                      - yarn install --frozen-lockfile
+                      - yarn install --immutable
               build:
                   commands:
-                      - yarn run build
+                      - yarn run react-app:build
           artifacts:
               baseDirectory: packages/react-app/build
               files:
